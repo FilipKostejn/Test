@@ -19,7 +19,7 @@
 
 
 #linky {
-    margin-top: 1vh;
+    margin-top: 0.25vh;
     display: inline-flex;
     justify-content: left;
 }
@@ -29,7 +29,7 @@
 a {
     color: rgb(0, 0, 0);
     font-family: 'Trebuchet MS', sans-serif;
-    font-size: 2.5vw;
+    font-size: 3vw;
 }
 a:link {
     text-decoration: none;
@@ -149,7 +149,7 @@ a:active {
     display: none; /*block*/
 }
 #header {
-    padding: 2vh;
+    padding: 1vh;
     text-align: center;
     background-color: #74efff;
     position: relative;
@@ -157,7 +157,7 @@ a:active {
     border-bottom: 2px solid black;
 }
 .header {
-    font-size: 3vw;
+    font-size: 4vw;
 }
 
 /*@media only screen and (max-height: 1200px) and (max-width: 500px) {*/
@@ -165,10 +165,11 @@ a:active {
     .buttons {font-size: 9vw; margin-bottom: 5vh;}
     .buttony {font-size: 10vw; margin-bottom: 5vh;}
     .priklady {font-size: 8vw;}
-    .header {font-size: 5vw;}
-    #header {height: 20vw;}
+    .header {font-size: 6vw;}
+    #header {height: 17vw;}
     .details {font-size: 5vw;}
     #zpet {font-size: 5vw;}
     #downloadCsv {font-size: 5vw;}
+    a {font-size: 5vw;}
   }
 
