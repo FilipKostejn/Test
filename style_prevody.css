@@ -105,3 +105,19 @@ body {
         .dec, .bin, .hex {width: 6vw; height: 6vh;}
         a {font-size: 5vw;}
       }
+
+
+
+
+      /*TEST INPUT NUMBER*/
+      /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
