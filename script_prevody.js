@@ -42,14 +42,16 @@ console.log(hexNumber);
 binInputs.forEach((input, index) => {
   input.addEventListener("input", function () {
     if (input.value === binaryNumber.charAt(index)) {
-      input.style.backgroundColor = "green";
+      input.style.color = "green";
+      input.style.borderColor = "green";
       if (index < binInputs.length - 1) {
         binInputs[index + 1].focus();
       } else {
         hexInputs[0].focus();
       }
     } else {
-      input.style.backgroundColor = "red";
+      input.style.color = "red";
+      input.style.borderColor = "red";
       if (index < binInputs.length - 1) {
         binInputs[index + 1].focus();
     } else {
@@ -62,12 +64,14 @@ binInputs.forEach((input, index) => {
 hexInputs.forEach((input, index) => {
   input.addEventListener("input", function () {
     if (input.value.toUpperCase() === hexNumber.charAt(index)) {
-      input.style.backgroundColor = "green";
+      input.style.color = "green";
+      input.style.borderColor = "green";
       if (index < hexInputs.length - 1) {
         hexInputs[index + 1].focus();
       }
     } else {
-      input.style.backgroundColor = "red";
+      input.style.color = "red";
+      input.style.borderColor = "red";
       if (index < hexInputs.length - 1) {
         hexInputs[index + 1].focus();
     }

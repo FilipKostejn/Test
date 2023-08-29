@@ -75,7 +75,6 @@ body {
     align-items: center;
 }
 .dec, .bin, .hex {
-    color: #000000;
     background-color: transparent;
     width: 5vw;
     text-align: center;
@@ -91,8 +90,8 @@ body {
 .space {
     width: 2vw;
     text-align: center;
-
     font-size: 3rem;
+    color: rgb(107, 107, 107);
 }
 
 
@@ -109,15 +108,15 @@ body {
 
 
 
-      /*TEST INPUT NUMBER*/
+      /*TEST INPUT NUMBER (PŘEVZATO Z W3SCHOOLS)*/
       /* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
+    /* Firefox */
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
