@@ -45,8 +45,10 @@ binInputs.forEach((input, index) => {
       input.style.color = "green";
       input.style.borderColor = "green";
       if (index < binInputs.length - 1) {
+        input.disabled = 'true';
         binInputs[index + 1].focus();
       } else {
+        input.disabled = 'true';
         hexInputs[0].focus();
       }
     } else {
@@ -54,7 +56,9 @@ binInputs.forEach((input, index) => {
       input.style.borderColor = "red";
       if (index < binInputs.length - 1) {
         binInputs[index + 1].focus();
+        input.disabled = 'true';
     } else {
+      input.disabled = 'true';
       hexInputs[0].focus();
     }
   }});
@@ -68,12 +72,20 @@ hexInputs.forEach((input, index) => {
       input.style.borderColor = "green";
       if (index < hexInputs.length - 1) {
         hexInputs[index + 1].focus();
-      }
+        input.disabled = 'true';
+      } else {
+          input.disabled = 'true';
+          console.log('mrdko');
+    }
     } else {
       input.style.color = "red";
       input.style.borderColor = "red";
       if (index < hexInputs.length - 1) {
         hexInputs[index + 1].focus();
+        input.disabled = 'true';
+    } else {
+        input.disabled = 'true';
+        console.log('mrdko');
     }
   }});
 });
