@@ -75,6 +75,7 @@ hexInputs.forEach((input, index) => {
         input.disabled = 'true';
       } else {
           input.disabled = 'true';
+          document.getElementById('buttons').style.display = "block";
           console.log('mrdko');
     }
     } else {
@@ -85,7 +86,19 @@ hexInputs.forEach((input, index) => {
         input.disabled = 'true';
     } else {
         input.disabled = 'true';
+        document.getElementById('buttons').style.display = "block";
         console.log('mrdko');
     }
   }});
+});
+
+/**/
+
+document.getElementById('next').addEventListener('click', function next() {
+  console.log('naser si ty kurvo');
+});
+
+
+document.getElementById('downloadCsv').addEventListener('click', function next() {
+  console.log('čau lidi doprdele ty vole to je jasný, hehehehehe kundy vymrdaný');
 });

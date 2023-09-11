@@ -93,6 +93,23 @@ body {
     font-size: 3rem;
     color: rgb(107, 107, 107);
 }
+/**/
+
+
+#buttons {
+    display: none; /*NONE*/
+    text-align: center;
+}
+
+button {
+    background-color: #74efff;
+    margin-top: 2vh;
+    width: 15vw;
+    border-radius: 1vw;
+    border: none;
+    font-size: 2vw;
+    cursor: pointer;
+}
 
 
 
@@ -103,6 +120,7 @@ body {
         #header {height: 17vw;}
         .dec, .bin, .hex {width: 6vw; height: 6vh;}
         a {font-size: 5vw;}
+        button {font-size: 5vw; width: 30vw;}
       }
 
 
