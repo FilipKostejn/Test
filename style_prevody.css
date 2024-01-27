@@ -92,6 +92,7 @@ body {
     text-align: center;
     font-size: 3rem;
     color: rgb(107, 107, 107);
+    display: none;
 }
 /**/
 
@@ -110,6 +111,43 @@ button {
     font-size: 2vw;
     cursor: pointer;
 }
+
+#bina {
+    display: none;
+}
+
+#hexa {
+    display: none;
+}
+/*UVOD NOVE*/
+#uvodni {
+    font-size: 2vw;
+}
+#uvod {
+    text-align: center;
+
+    margin-top: 2vh;
+}
+#begin {
+
+}
+#begindiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+
+
+/*-------------*/
+
+
+
+
+
 
 
 

@@ -1,36 +1,57 @@
-// Get all elements with the class "dec", "bin", and "hex"
 const decInputs = document.querySelectorAll(".dec");
 const binInputs = document.querySelectorAll(".bin");
 const hexInputs = document.querySelectorAll(".hex");
+let result = "";
+let binaryNumber = "";
+let hexNumber = "";
 let right = 0;
 let wrong = 0;
 
-//Generování náhodného čísla od 0 do 255
-function getRandomNumber(min, max) {
+function convertToNumber() {
+    // Concatenate values from all input fields
+    decInputs.forEach(input => {
+    result += input.value;
+    result = Number(result);
 
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+})};
 
-// Generate a random number between 0 and 255 and convert it to a string
-let randomNumber = getRandomNumber(0, 255).toString();
+function convert() {
+    //převedení čísla do binárního pro kontrolu
+    binaryNumber = parseInt(result).toString(2).padStart(8, '0');
+    console.log(binaryNumber);
 
-//přídání 0 před číslo aby vždy byly 3 číslice
-let formattedNumber = randomNumber.padStart(3, '0');
+    //převedení do hexa na kontrolu
+    hexNumber = parseInt(result).toString(16).padStart(2, '0').toUpperCase();
+    console.log(hexNumber);
+};
 
-//zapsání čísla
-for (let i = 0; i < decInputs.length; i++) {
-  if (formattedNumber.length > i) {
-    decInputs[i].value = formattedNumber.charAt(i);
-  }
-}
 
-//převedení čísla do binárního pro kontrolu
-let binaryNumber = parseInt(randomNumber).toString(2).padStart(8, '0');
-console.log(binaryNumber);
+document.getElementById("begin").addEventListener("click", function () {
+  convertToNumber();
+  console.log(result);
+  convert();
+  document.getElementById("begindiv").style.display = "none";
+  document.getElementById("hexa").style.display = "block";
+  document.getElementById("bina").style.display = "block";
+  document.getElementById("space").style.display = "block";
+  document.getElementById("space2").style.display = "block";
+  document.getElementById("uvodni").innerHTML = "&nbsp;";
+});
+decInputs.forEach((input, index) => {
+  input.addEventListener("input", function () {
+    // Check if the next decimal input element exists
+    if (index+1 < decInputs.length) {
+      decInputs[index+1].focus();
+    }
+    else {
+      decInputs.forEach(input => {
+      input.disabled = true;
+      })
 
-//převedení do hexa na kontrolu
-let hexNumber = parseInt(randomNumber).toString(16).padStart(2, '0').toUpperCase();
-console.log(hexNumber);
+  }});
+});
+
+
 
 
 binInputs.forEach((input, index) => {
@@ -90,58 +111,11 @@ hexInputs.forEach((input, index) => {
   }});
 });
 
-/*NOVÉ*/
 
-document.getElementById('next').addEventListener('click', function next() {
-  // Generuj nové náhodné číslo
-  let newRandomNumber = getRandomNumber(0, 255).toString();
-  let newFormattedNumber = newRandomNumber.padStart(3, '0');
-
-  // Aktualizuj desítkové vstupy
-  for (let i = 0; i < decInputs.length; i++) {
-    if (newFormattedNumber.length > i) {
-      decInputs[i].value = newFormattedNumber.charAt(i);
-      decInputs[i].style.color = ""; // Resetuj barvy
-      decInputs[i].style.borderColor = "";
-      decInputs[i].disabled = false; // Resetuj disable
-    }
-  }
-
-  // Převedení do binárního pro kontrolu
-  let newBinaryNumber = parseInt(newRandomNumber).toString(2).padStart(8, '0');
-  console.log("nové číslo: " + newBinaryNumber);
-
-  // Převedení do hexa pro kontrolu
-  let newHexNumber = parseInt(newRandomNumber).toString(16).padStart(2, '0').toUpperCase();
-  console.log("nové číslo: " + newHexNumber);
-
-  // Aktualizuj binární vstupy
-  binInputs.forEach((input, index) => {
-    input.value = "";
-    input.style.color = "";
-    input.style.borderColor = "";
-    input.disabled = false;
-  });
-
-  // Aktualizuj hexadecimální vstupy
-  hexInputs.forEach((input, index) => {
-    input.value = "";
-    input.style.color = "";
-    input.style.borderColor = "";
-    input.disabled = false;
-  });
-
-  // Skryj tlačítko
-  document.getElementById('buttons').style.display = "none";
-  console.log('generace dalšího příkladu');
-
-  //nutné aby fungovala kontrola
-  binaryNumber = newBinaryNumber;
-  hexNumber = newHexNumber;
-});
 
 
 document.getElementById('downloadCsv').addEventListener('click', function next() {
   console.log('export do csv');
   console.log("Spravne: " + right+ ", spatne: " + wrong);
 });
+
