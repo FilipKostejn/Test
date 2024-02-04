@@ -13,7 +13,12 @@ function convertToNumber() {
     result += input.value;
     result = Number(result);
 
-})};
+})
+if (result == 0) {
+  alert("Please enter a valid number.");
+  location.reload();
+}
+};
 
 function convert() {
     //převedení čísla do binárního pro kontrolu

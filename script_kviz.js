@@ -25,7 +25,7 @@ document.getElementById('btn_scitani').addEventListener('click', function scitan
     vysledek_bin=hodnota_vysledku.toString(2);
     y += vysledek_bin.length;       //nastaví y na hodnotu délky výsledku (-1 + "vysledek_bin.legth") (-1 kvůli pozici 0 stringu)
     operace = 1;
-    document.getElementById('text_header').textContent = "Sčítání";
+
 })
 document.getElementById('btn_odcitani').addEventListener('click', function odcitani() { 
     zacatek();
@@ -34,7 +34,6 @@ document.getElementById('btn_odcitani').addEventListener('click', function odcit
     vysledek_bin=hodnota_vysledku.toString(2);
     y += vysledek_bin.length;       //nastaví y na hodnotu délky výsledku (-1 + "vysledek_bin.legth") (-1 kvůli pozici 0 stringu)
     operace = 2;
-    document.getElementById('text_header').textContent = "Odčítání";
 })
 document.getElementById('btn_deleni').addEventListener('click', function deleni() { 
     zacatek();
@@ -43,7 +42,6 @@ document.getElementById('btn_deleni').addEventListener('click', function deleni(
     vysledek_bin=hodnota_vysledku.toString(2);
     y += vysledek_bin.length;       //nastaví y na hodnotu délky výsledku (-1 + "vysledek_bin.legth") (-1 kvůli pozici 0 stringu)
     operace = 3;
-    document.getElementById('text_header').textContent = "Dělení";
 })
 document.getElementById('btn_nasobeni').addEventListener('click', function nasobeni() { 
     zacatek();
@@ -52,7 +50,6 @@ document.getElementById('btn_nasobeni').addEventListener('click', function nasob
     vysledek_bin=hodnota_vysledku.toString(2);
     y += vysledek_bin.length;       //nastaví y na hodnotu délky výsledku (-1 + "vysledek_bin.legth") (-1 kvůli pozici 0 stringu)
     operace = 4;
-    document.getElementById('text_header').textContent = "Násobení";
 })
 
 //FUNKCE
@@ -63,8 +60,6 @@ function zacatek() {
     document.getElementById('buttony01').style.display = 'flex';
     document.getElementById('zpet').style.display = 'block';
     document.getElementById('downloadCsv').style.display = 'block';
-    document.getElementById('linky').style.display = 'none';
-    document.getElementById('text_header').style.display = 'block';
     setInterval(casInc, 100);
 }
 

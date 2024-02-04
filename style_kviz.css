@@ -15,41 +15,6 @@
     width: 100%;
 }
 
-/*PŘÍDÁNO*/
-
-
-#linky {
-    margin-top: 0.25vh;
-    display: inline-flex;
-    justify-content: left;
-}
-#link1 {
-    margin-right: 3vh;
-}
-a {
-    color: rgb(0, 0, 0);
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 3vw;
-}
-a:link {
-    text-decoration: none;
-}
-  
-a:visited {
-    text-decoration: none;
-}
-  
-a:hover {
-    text-decoration: underline;
-}
-  
-a:active {
-    text-decoration: underline;
-}
-
-#text_header {
-    display: none;
-}
 
 
 /*----------------*/
@@ -153,7 +118,7 @@ a:active {
     text-align: center;
     background-color: #74efff;
     position: relative;
-    height: 9vw;
+    height: 6vw;
     border-bottom: 2px solid black;
 }
 .header {
@@ -162,14 +127,14 @@ a:active {
 
 /*@media only screen and (max-height: 1200px) and (max-width: 500px) {*/
 @media only screen and (orientation: portrait) {
-    .buttons {font-size: 9vw; margin-bottom: 5vh;}
+    .buttons {font-size: 7vw; margin-bottom: 5vh;}
     .buttony {font-size: 10vw; margin-bottom: 5vh;}
     .priklady {font-size: 8vw;}
-    .header {font-size: 6vw;}
-    #header {height: 17vw;}
+    .header {font-size: 9vw;}
+    #header {height: 14vw;}
     .details {font-size: 5vw;}
-    #zpet {font-size: 5vw;}
-    #downloadCsv {font-size: 5vw;}
+    #zpet {font-size: 5vw; width: 30vw;}
+    #downloadCsv {font-size: 5vw; width: 30vw;}
     a {font-size: 5vw;}
   }
 
