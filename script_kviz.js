@@ -57,6 +57,8 @@ function zacatek() {
     document.getElementById('detaily').style.display = 'flex';
     document.getElementById('priklady').style.display = 'flex';
     document.getElementById('vyber_okno').style.display = 'none';
+    document.getElementById('uvod').style.display = 'none';
+    document.getElementById('domu').style.display = 'none';
     document.getElementById('buttony01').style.display = 'flex';
     document.getElementById('zpet').style.display = 'block';
     document.getElementById('downloadCsv').style.display = 'block';

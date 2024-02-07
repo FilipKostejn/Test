@@ -12,9 +12,11 @@
       <div id="header">
         <h1 class="header">Převody číselných soustav</h1>
       </div>
+      <button type="button" id="domu" onclick="window.location.href='index.html'">Domů</button>
       <form action="">
         <div id="uvod">
         <h1 id="uvodni">Zadej číslo v desítkové soustavě:</h1>
+        <h1 id="uvodni2">Zadej binární hodnotu a následně hexadecimální hodnotu čísla:</h1>
       </div>
         <div class="container">
           <div id="deci">
@@ -40,12 +42,19 @@
           </div>
         </div>
     </form>
+    <div id="checkbox">
+        <label class="form-control">
+          <input type="checkbox" name="checkbox" id="check" />
+          Automaticky převést do ostatních soustav
+        </label>
+    </div>
     <div id="begindiv">
     <button type="button" id="begin">Začít</button>
   </div>
+  <button type="button" id="zpet">Zpět</button>
       <div id="buttons">
         <button type="button" id="next">Další příklad</button>
-        <button type="button" id="downloadCsv">Data</button>
+        <button type="button" id="downloadCsv">Export Dat</button>
       </div>
     </div>
     <script src="script_prevody.js" defer></script>

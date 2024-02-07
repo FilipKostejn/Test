@@ -83,7 +83,7 @@
     margin-bottom: 2vh;
 }
 #vyber_okno {
-    margin-top: 10%;
+    margin-top: 10vh;
     height: 50%;
     width: 50%;
     display: grid;
@@ -95,7 +95,7 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: red;
+    background-color: #00d9ffc5;
     border: none;
     font-size: 2vw;
     cursor: pointer;
@@ -107,7 +107,7 @@
     position: fixed;
     bottom: 0;
     right: 0;
-    background-color: red;
+    background-color: #00d9ffc5;
     border: none;
     font-size: 2vw;
     cursor: pointer;
@@ -125,6 +125,32 @@
     font-size: 4vw;
 }
 
+
+
+#uvodni {
+    font-size: 2vw;
+}
+#uvod {
+    margin-top: 1vh;
+    text-align: center;
+}
+
+
+#domu {
+    width: 16vw;
+    height: 5vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #00d9ffc5;
+    border: none;
+    font-size: 2vw;
+    cursor: pointer;
+    display: block; /*block*/
+}
+
+
+
 /*@media only screen and (max-height: 1200px) and (max-width: 500px) {*/
 @media only screen and (orientation: portrait) {
     .buttons {font-size: 7vw; margin-bottom: 5vh;}
@@ -133,8 +159,9 @@
     .header {font-size: 9vw;}
     #header {height: 14vw;}
     .details {font-size: 5vw;}
-    #zpet {font-size: 5vw; width: 30vw;}
+    #zpet, #domu {font-size: 5vw; width: 30vw;}
     #downloadCsv {font-size: 5vw; width: 30vw;}
     a {font-size: 5vw;}
+    #uvodni {font-size: 5vw;}
   }
 

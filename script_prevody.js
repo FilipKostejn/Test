@@ -20,6 +20,21 @@ if (result == 0) {
 }
 };
 
+
+
+function displayConvertedValues() {
+  // Display converted values in corresponding input fields
+  binInputs.forEach((input, index) => {
+      input.value = binaryNumber.charAt(index);
+      input.disabled = true;
+  });
+
+  hexInputs.forEach((input, index) => {
+      input.value = hexNumber.charAt(index);
+      input.disabled = true;
+  });
+}
+
 function convert() {
     //převedení čísla do binárního pro kontrolu
     binaryNumber = parseInt(result).toString(2).padStart(8, '0');
@@ -32,16 +47,38 @@ function convert() {
 
 
 document.getElementById("begin").addEventListener("click", function () {
-  convertToNumber();
-  console.log(result);
-  convert();
-  document.getElementById("begindiv").style.display = "none";
-  document.getElementById("hexa").style.display = "block";
-  document.getElementById("bina").style.display = "block";
-  document.getElementById("space").style.display = "block";
-  document.getElementById("space2").style.display = "block";
-  document.getElementById("uvodni").innerHTML = "&nbsp;";
+  if (document.getElementById("check").checked) {
+    console.log("mic check nigga");
+    begin();
+    displayConvertedValues();
+    document.getElementById('buttons').style.display = "block";
+    document.getElementById("uvodni2").innerHTML = "Správně převedené čísla vypadají takto:"
+  } else {
+    begin();
+    binInputs[0].focus();
+  }
 });
+
+
+function begin () {
+  convertToNumber();
+    console.log(result);
+    convert();
+    document.getElementById("begindiv").style.display = "none";
+    document.getElementById("domu").style.display = "none";
+    document.getElementById("hexa").style.display = "block";
+    document.getElementById("bina").style.display = "block";
+    document.getElementById("uvodni2").style.display = "block";
+    document.getElementById("space").style.display = "block";
+    document.getElementById("zpet").style.display = "block";
+    document.getElementById("space2").style.display = "block";
+    document.getElementById("uvodni").style.display = "none";
+    document.getElementById("checkbox").style.display = "none";
+};
+
+
+
+
 decInputs.forEach((input, index) => {
   input.addEventListener("input", function () {
     // Check if the next decimal input element exists
@@ -124,3 +161,11 @@ document.getElementById('downloadCsv').addEventListener('click', function next()
   console.log("Spravne: " + right+ ", spatne: " + wrong);
 });
 
+
+document.getElementById('zpet').addEventListener('click', function() {
+  window.location.reload(); //příkaz na reload stránky
+})
+
+document.getElementById('next').addEventListener('click', function() {
+  window.location.reload(); //příkaz na reload stránky
+})
