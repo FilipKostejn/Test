@@ -17,39 +17,152 @@ var sekundy = 0;    //proměnná držící čas řešení příkladu
 var date = '';      //proměnná držící datum ukončení příkladu
 
 
+var index_test = 9;
+const cis1Inputs = document.querySelectorAll(".cisla1 input");
+const cis2Inputs = document.querySelectorAll(".cisla2 input");
+const vysInputs = document.querySelectorAll(".vysledek input");
+
+document.getElementById('moznost1').addEventListener('click', function() {
+    if (index_test > 0) {
+      // Nastavíme hodnotu aktuálního inputu na 1
+      vysInputs[index_test].value = "1";
+      console.log("TEST: ", index_test);
+      index_test--;
+      
+      if (delka < vysledek_bin.length) {
+        console.log("HEJ HEJ: ", vysledek_bin.charAt(y));
+        switch (vysledek_bin.charAt(y)) {
+          case '1':
+            spravne++;
+            document.getElementById('spravne').textContent = spravne;
+            vysInputs[index_test+1].style.color = "green";
+            vysInputs[index_test+1].style.borderColor = "green";
+            y--;
+            break;
+          case '0':
+            spatne++;
+            document.getElementById('spatne').textContent = spatne;
+            vysInputs[index_test+1].style.color = "red";
+            vysInputs[index_test+1].style.borderColor = "red";
+            y--;
+            break;
+        }
+        delka++;
+      } else {
+        switch (vysledek_bin.charAt(y)) {
+          case '1':
+            spravne++;
+            document.getElementById('spravne').textContent = spravne;
+            vysInputs[index_test+1].style.color = "green";
+            vysInputs[index_test+1].style.borderColor = "green";
+            y--;
+            break;
+          case '0':
+            spatne++;
+            document.getElementById('spatne').textContent = spatne;
+            vysInputs[index_test+1].style.color = "red";
+            vysInputs[index_test+1].style.borderColor = "red";
+            y--;
+            break;
+        }
+        delka++;
+        dalsi_priklad();
+      }
+    }
+  });
+  
+    
+document.getElementById('moznost2').addEventListener('click', function() {
+    if (index_test > 0) {
+        // Nastavíme hodnotu aktuálního inputu na 1
+        vysInputs[index_test].value = "0";
+        console.log("TEST: ", index_test);
+        index_test--;
+        
+        if (delka < vysledek_bin.length) {
+            console.log("HEJ HEJ: ", vysledek_bin.charAt(y));
+          switch (vysledek_bin.charAt(y)) {
+            case '0':
+              spravne++;
+              document.getElementById('spravne').textContent = spravne;
+              vysInputs[index_test+1].style.color = "green";
+            vysInputs[index_test+1].style.borderColor = "green";
+              y--;
+              break;
+            case '1':
+              spatne++;
+              document.getElementById('spatne').textContent = spatne;
+              vysInputs[index_test+1].style.color = "red";
+            vysInputs[index_test+1].style.borderColor = "red";
+              y--;
+              break;
+          }
+          delka++;
+        } else {
+          switch (vysledek_bin.charAt(y)) {
+            case '0':
+              spravne++;
+              document.getElementById('spravne').textContent = spravne;
+              vysInputs[index_test+1].style.color = "green";
+            vysInputs[index_test+1].style.borderColor = "green";
+              y--;
+              break;
+            case '1':
+              spatne++;
+              document.getElementById('spatne').textContent = spatne;
+              vysInputs[index_test+1].style.color = "red";
+            vysInputs[index_test+1].style.borderColor = "red";
+              y--;
+              break;
+          }
+          delka++;
+          dalsi_priklad();
+        }
+      }
+
+})
+
+
 
 document.getElementById('btn_scitani').addEventListener('click', function scitani() { 
-    zacatek();
-    vytvoreni_zadani(8,8);
-    hodnota_vysledku=hodnota1+hodnota2;
-    vysledek_bin=hodnota_vysledku.toString(2);
-    y += vysledek_bin.length;       //nastaví y na hodnotu délky výsledku (-1 + "vysledek_bin.legth") (-1 kvůli pozici 0 stringu)
     operace = 1;
+    vytvoreni_zadani(8,8);
+    zacatek();
+    
+    console.log("hodnota vysledku: ",hodnota_vysledku);
+    vysledek_bin=hodnota_vysledku.toString(2);
+    console.log("vysledek v bin: ",vysledek_bin);
+    y += vysledek_bin.length;       //nastaví y na hodnotu délky výsledku (-1 + "vysledek_bin.legth") (-1 kvůli pozici 0 stringu)
+    
 
 })
 document.getElementById('btn_odcitani').addEventListener('click', function odcitani() { 
-    zacatek();
-    vytvoreni_zadani(8,7);
-    hodnota_vysledku=hodnota1-hodnota2;
-    vysledek_bin=hodnota_vysledku.toString(2);
-    y += vysledek_bin.length;       //nastaví y na hodnotu délky výsledku (-1 + "vysledek_bin.legth") (-1 kvůli pozici 0 stringu)
     operace = 2;
+    vytvoreni_zadani(8,7);
+    zacatek();
+    console.log("hodnota vysledku: ",hodnota_vysledku);
+    vysledek_bin=hodnota_vysledku.toString(2);
+    console.log("vysledek v bin: ",vysledek_bin);
+    y += vysledek_bin.length;       //nastaví y na hodnotu délky výsledku (-1 + "vysledek_bin.legth") (-1 kvůli pozici 0 stringu)
 })
 document.getElementById('btn_deleni').addEventListener('click', function deleni() { 
-    zacatek();
-    vytvoreni_zadani(8,4);
-    hodnota_vysledku=Math.floor(hodnota1/hodnota2);
-    vysledek_bin=hodnota_vysledku.toString(2);
-    y += vysledek_bin.length;       //nastaví y na hodnotu délky výsledku (-1 + "vysledek_bin.legth") (-1 kvůli pozici 0 stringu)
     operace = 3;
+    vytvoreni_zadani(8,4);
+    zacatek();
+    hodnota_vysledku=Math.floor(hodnota1/hodnota2);
+    console.log("hodnota vysledku: ",hodnota_vysledku);
+    vysledek_bin=hodnota_vysledku.toString(2);
+    console.log("vysledek v bin: ",vysledek_bin);
+    y += vysledek_bin.length;       //nastaví y na hodnotu délky výsledku (-1 + "vysledek_bin.legth") (-1 kvůli pozici 0 stringu)
 })
 document.getElementById('btn_nasobeni').addEventListener('click', function nasobeni() { 
-    zacatek();
-    vytvoreni_zadani(5,5);
-    hodnota_vysledku=hodnota1*hodnota2;
-    vysledek_bin=hodnota_vysledku.toString(2);
-    y += vysledek_bin.length;       //nastaví y na hodnotu délky výsledku (-1 + "vysledek_bin.legth") (-1 kvůli pozici 0 stringu)
     operace = 4;
+    vytvoreni_zadani(5,5);
+    zacatek();
+    console.log("hodnota vysledku: ",hodnota_vysledku);
+    vysledek_bin=hodnota_vysledku.toString(2);
+    console.log("vysledek v bin: ",vysledek_bin);
+    y += vysledek_bin.length;       //nastaví y na hodnotu délky výsledku (-1 + "vysledek_bin.legth") (-1 kvůli pozici 0 stringu)
 })
 
 //FUNKCE
@@ -78,6 +191,7 @@ function vytvoreni_zadani(delka_cisla1, delka_cisla2) {
         zadani2='';
         j=7;
         x=7;
+        console.log("nulovani hodnot");
         for (let index = 0; index < delka_cisla1; index++) {   // generace prvního zadaného čísla
             zadani1 += funkce_0nebo1();   
         }
@@ -87,88 +201,44 @@ function vytvoreni_zadani(delka_cisla1, delka_cisla2) {
         }
         hodnota1 = parseInt(zadani1, 2);        //převod 1. čísla na dekadické
         hodnota2 = parseInt(zadani2, 2);        // převod 2. čísla na dekadické
+        console.log("prevod cisel na deka: ", hodnota1, "....", hodnota2);
     } 
-    document.getElementById('priklad1').textContent=zadani1;
-    document.getElementById('priklad2').textContent= zadani2;
+
+    // Použijeme .padStart(8, '0') k doplnění nul
+    binaryNumber1 = zadani1.padStart(8, '0');
+    binaryNumber2 = zadani2.padStart(8, '0');
+    console.log("prvni bin cislo: ",binaryNumber1);
+    console.log("druhe bin cislo: ",binaryNumber2);
+
+    switch (operace) {
+        case 1:
+            hodnota_vysledku=hodnota1+hodnota2;
+            cis2Inputs[1].value = "+";
+            break;
+        case 2:
+            hodnota_vysledku=hodnota1-hodnota2;
+            cis2Inputs[1].value = "-";
+            break;
+        case 3:
+            hodnota_vysledku=Math.floor(hodnota1/hodnota2);
+            cis2Inputs[1].value = "÷";
+            break;
+        case 4:
+            hodnota_vysledku=hodnota1*hodnota2;
+            cis2Inputs[1].value = "·";
+            break;
+
+    }
+
+
+    // Zapisujeme jednotlivé bity binárního čísla do inputů
+    for (var i = 2; i < cis1Inputs.length; i++) {
+      cis1Inputs[i].value = binaryNumber1[i-2];
+    }
+    for (var i = 2; i < cis2Inputs.length; i++) {
+        cis2Inputs[i].value = binaryNumber2[i-2];
+    }
 }
-
-document.getElementById('moznost1').addEventListener('click', function() {
-    if (delka == 1) {   //smazání neviditelného znaku na začátku (pro zobrazení řádku pro výsledek)
-        document.getElementById('vysledek').textContent='';
-        document.getElementById('vysledek').textContent='1' + document.getElementById('vysledek').textContent;
-    } else {    
-        document.getElementById('vysledek').textContent='1' + document.getElementById('vysledek').textContent;
-    }
-    if (delka < vysledek_bin.length) {
-        switch (vysledek_bin.charAt(y)) {
-        case '1':
-            spravne++;
-            document.getElementById('spravne').textContent=spravne;
-            y--;
-        break;
-        case '0':
-            spatne++;
-            document.getElementById('spatne').textContent=spatne;
-            y--;
-        break;
-    }
-    delka++;
-    } else {
-        switch (vysledek_bin.charAt(y)) {
-            case '1':
-                spravne++;
-                document.getElementById('spravne').textContent=spravne;
-                y--;
-            break;
-            case '0':
-                spatne++;
-                document.getElementById('spatne').textContent=spatne;
-                y--;
-            break;
-        }
-        delka++;
-        dalsi_priklad();
-   }})
-
-document.getElementById('moznost2').addEventListener('click', function() {
-    if (delka == 1) {           //smazání neviditelného znaku na začátku (pro zobrazení řádku pro výsledek)
-        document.getElementById('vysledek').textContent='';
-        document.getElementById('vysledek').textContent='0' + document.getElementById('vysledek').textContent;
-    } else {    
-        document.getElementById('vysledek').textContent='0' + document.getElementById('vysledek').textContent;
-    }      
-    if (delka < vysledek_bin.length) {
-        switch (vysledek_bin.charAt(y)) {
-            case '0':
-                spravne++;
-                document.getElementById('spravne').textContent=spravne;
-                y--;
-            break;
-            case '1':
-                spatne++;
-                document.getElementById('spatne').textContent=spatne;
-                y--;
-            break;
-        }
-        delka++;
-        } else {
-            switch (vysledek_bin.charAt(y)) {
-                case '0':
-                    spravne++;
-                    document.getElementById('spravne').textContent=spravne;
-                    y--;
-                break;
-                case '1':
-                    spatne++;
-                    document.getElementById('spatne').textContent=spatne;
-                    y--;
-                break;
-            }
-            delka++;
-            dalsi_priklad();
-        }
-    })
-
 
 function casInc() {
     sekundy+=0.1;
@@ -176,6 +246,12 @@ function casInc() {
 }
 
 //nastavení dalšího příkladu (vymázání hodnot pro přepsání)
+
+function dalsi_priklad() {
+    console.log("KONEC PRIKLADU, GENRACE DALSIHO PRIKLADU");
+    document.getElementById('buttony01').style.display = 'none';
+}
+/*
 function dalsi_priklad() {
     date = new Date().toLocaleString('cs-CZ');     //podle https://stackoverflow.com/a/30245911
     data.push({cislo1: zadani1, cislo2: zadani2, vysledek: vysledek_bin, zadano: document.getElementById('vysledek').textContent, spravne: spravne, spatne: spatne, cas: sekundy.toFixed(1) + "s", casUkonceni: date});
@@ -193,39 +269,10 @@ function dalsi_priklad() {
     spravne = 0;
     spatne = 0;
     delka = 1;
-    document.getElementById('priklad1').textContent='';
-    document.getElementById('priklad2').textContent='';
-    document.getElementById('vysledek').innerHTML= "&nbsp;"     //v tomto případě nešlo použít ".textContent", musel jsem použít ".innerHTML"
     document.getElementById('spatne').textContent='-';
     document.getElementById('spravne').textContent='-';
-    switch (operace) {
-        case 1:
-            vytvoreni_zadani(8,8);
-            hodnota_vysledku=hodnota1+hodnota2;
-            vysledek_bin=hodnota_vysledku.toString(2);
-            y += vysledek_bin.length;
-            break;
-        case 2:
-            vytvoreni_zadani(8,7);
-            hodnota_vysledku=hodnota1-hodnota2;
-            vysledek_bin=hodnota_vysledku.toString(2);
-            y += vysledek_bin.length;
-            break;
-        case 3:
-            vytvoreni_zadani(8,4);
-            hodnota_vysledku=Math.floor(hodnota1/hodnota2);
-            vysledek_bin=hodnota_vysledku.toString(2);
-            y += vysledek_bin.length;
-            break;
-        case 4:
-            vytvoreni_zadani(5,5);
-            hodnota_vysledku=hodnota1*hodnota2;
-            vysledek_bin=hodnota_vysledku.toString(2);
-            y += vysledek_bin.length;
-            break;
-    }
 }
-
+*/
 document.getElementById('zpet').addEventListener('click', function() {
     window.location.reload(); //příkaz na reload stránky
 })
@@ -247,3 +294,4 @@ function downloadCsv(filename, csvData) {
     element.click();
     document.body.removeChild(element);
 }
+

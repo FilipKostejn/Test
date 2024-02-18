@@ -13,6 +13,7 @@
     display: grid;
     height: 100%;
     width: 100%;
+
 }
 
 
@@ -29,25 +30,16 @@
 .details {
     font-size: 3vw;
 }
-#priklady {
-    border: 2px solid black;
-    display: none; /*flex*/
-    justify-content: center;
-    width: 50%;
-    align-self: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5vh;
-}
-#priklad2 {
-    border-bottom: 2px solid black;
-}
+
+
+
 #zobrazeni_prikladu {
-    text-align: right;
+    align-items: right;
+    width: 100%;
+    float: right;
+
 }
-.priklady {
-    font-size: 3vw;
-}
+
 .btn {
     display: none;
     justify-content: space-evenly;
@@ -120,6 +112,7 @@
     position: relative;
     height: 6vw;
     border-bottom: 2px solid black;
+    width: 100%;
 }
 .header {
     font-size: 4vw;
@@ -151,6 +144,57 @@
 
 
 
+
+
+
+
+
+
+
+
+
+/*---------------------------*/
+.container {
+    margin-top: 2vh;
+    justify-content: center;
+    align-items: center ;
+    text-align: right;
+    width: 100%;
+    display: none; /*flex*/
+    align-self: center;
+    margin-top: 5vh;
+}
+
+
+.cis1, .cis2, .vys {
+    background-color: transparent;
+    width: 5vw;
+    text-align: center;
+    /*padding: 1rem 1rem;*/
+    margin: 0 0.5vw;
+    margin-bottom: 0.5vw;
+    font-size: 3rem;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: .5rem;
+    color: rgba(0, 0, 0, 0.5);
+    height: 15vh;
+}
+#empty1, #empty2, #empty3, #empty4 {
+    border: none;
+    color: #000000;
+}
+#div {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#solid {
+    border-top: 3px solid #000000;
+}
+
+
+
+
 /*@media only screen and (max-height: 1200px) and (max-width: 500px) {*/
 @media only screen and (orientation: portrait) {
     .buttons {font-size: 7vw; margin-bottom: 5vh;}
@@ -163,5 +207,6 @@
     #downloadCsv {font-size: 5vw; width: 30vw;}
     a {font-size: 5vw;}
     #uvodni {font-size: 5vw;}
+    .cis1, .cis2, .vys {width: 8vw; height: 8vh;}
   }
 

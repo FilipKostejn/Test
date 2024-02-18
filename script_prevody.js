@@ -15,7 +15,7 @@ function convertToNumber() {
 
 })
 if (result == 0) {
-  alert("Please enter a valid number.");
+  alert("Prvně zadejte číslo.");
   location.reload();
 }
 };
