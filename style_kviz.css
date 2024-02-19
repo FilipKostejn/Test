@@ -172,7 +172,8 @@
     text-align: center;
     /*padding: 1rem 1rem;*/
     margin: 0 0.5vw;
-    margin-bottom: 0.5vw;
+    margin-bottom: 0.25vw;
+    margin-top: 0.25vw;
     font-size: 3rem;
     border: 2px solid rgba(0, 0, 0, 0.3);
     border-radius: .5rem;
@@ -190,6 +191,13 @@
 
 #solid {
     border-top: 3px solid #000000;
+    margin-bottom: 0.5vw;
+}
+#next {
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
 }
 
 

@@ -4,10 +4,7 @@ var hodnota1 = 0;  // proměnná držící hodnotu prvního zadaného čísla v 
 var hodnota2 = 0;  // proměnná držící hodnotu druhého zadaného čísla v dekadické soustavě        
 var hodnota_vysledku = 0;  //proměnná která drží správnou hodnotu výsledku v dekadické soustavě
 var vysledek_bin = '';     // proměnná držící správnou výslednou hodnotu výsledku v binární soustavě
-var j = 7; //pomocná proměnná pro převod na dekadické číslo (prvního čísla)
-var x = 7; //pomocná proměnná pro převod na dekadické číslo (druhého čísla)
 var y = -1; //pomocná proměnná pro kontrolu 1 nebo 0 na "y" pozici "vysledek_bin"
-var vysledek_zapis_pom = '';
 var spravne = 0;
 var spatne = 0;
 var delka = 1;
@@ -16,7 +13,7 @@ var data = [];      //proměnná pro uložení informací, které jsou exportov�
 var sekundy = 0;    //proměnná držící čas řešení příkladu
 var date = '';      //proměnná držící datum ukončení příkladu
 
-
+var zadany_vysledek = '';
 var index_test = 9;
 const cis1Inputs = document.querySelectorAll(".cisla1 input");
 const cis2Inputs = document.querySelectorAll(".cisla2 input");
@@ -66,7 +63,16 @@ document.getElementById('moznost1').addEventListener('click', function() {
             break;
         }
         delka++;
-        dalsi_priklad();
+        document.getElementById("next").style.display = 'block';
+        document.getElementById('buttony01').style.display = 'none';
+        console.log("cas na novy priklad");
+        for (let index = 0; index <= 9; index++) {
+          zadany_vysledek += vysInputs[index].value;
+          
+        }
+        console.log("ZADANY VYSLEDEK: ", zadany_vysledek);
+        date = new Date().toLocaleString('cs-CZ');     //podle https://stackoverflow.com/a/30245911
+        data.push({cislo1: zadani1, cislo2: zadani2, vysledek: vysledek_bin, zadano: zadany_vysledek, spravne: spravne, spatne: spatne, cas: sekundy.toFixed(1) + "s", casUkonceni: date});
       }
     }
   });
@@ -116,7 +122,16 @@ document.getElementById('moznost2').addEventListener('click', function() {
               break;
           }
           delka++;
-          dalsi_priklad();
+          document.getElementById("next").style.display = 'block';
+          document.getElementById('buttony01').style.display = 'none';
+          console.log("cas na novy priklad");
+          for (let index = 0; index <= 9; index++) {
+            zadany_vysledek += vysInputs[index].value;
+            
+          }
+          console.log("ZADANY VYSLEDEK: ", zadany_vysledek);
+          date = new Date().toLocaleString('cs-CZ');     //podle https://stackoverflow.com/a/30245911
+    data.push({cislo1: zadani1, cislo2: zadani2, vysledek: vysledek_bin, zadano: zadany_vysledek, spravne: spravne, spatne: spatne, cas: sekundy.toFixed(1) + "s", casUkonceni: date});
         }
       }
 
@@ -247,14 +262,9 @@ function casInc() {
 
 //nastavení dalšího příkladu (vymázání hodnot pro přepsání)
 
-function dalsi_priklad() {
-    console.log("KONEC PRIKLADU, GENRACE DALSIHO PRIKLADU");
-    document.getElementById('buttony01').style.display = 'none';
-}
-/*
-function dalsi_priklad() {
-    date = new Date().toLocaleString('cs-CZ');     //podle https://stackoverflow.com/a/30245911
-    data.push({cislo1: zadani1, cislo2: zadani2, vysledek: vysledek_bin, zadano: document.getElementById('vysledek').textContent, spravne: spravne, spatne: spatne, cas: sekundy.toFixed(1) + "s", casUkonceni: date});
+document.getElementById('next_btn').addEventListener('click', function() {
+  console.log("kliknuti na dalsi priklad");
+  document.getElementById("next").style.display = 'none';
     sekundy = 0;
     zadani1 = ''; 
     zadani2 = ''; 
@@ -262,17 +272,58 @@ function dalsi_priklad() {
     hodnota2 = 0;  
     hodnota_vysledku = 0; 
     vysledek_bin = '';     
-    j = 7; 
-    x = 7; 
     y = -1; 
-    vysledek_zapis_pom = '';
+    zadany_vysledek = '';
     spravne = 0;
     spatne = 0;
     delka = 1;
+    index_test = 9;
     document.getElementById('spatne').textContent='-';
     document.getElementById('spravne').textContent='-';
-}
-*/
+
+    for (let index = 0; index <= 9; index++) {
+      vysInputs[index].value = '';
+      vysInputs[index].style.color = 'rgba(0, 0, 0, 0.5)';
+      vysInputs[index].style.borderColor = 'rgba(0, 0, 0, 0.3)';
+    }
+
+    switch (operace) {
+      case 1:
+        vytvoreni_zadani(8,8);
+        zacatek();
+        console.log("hodnota vysledku: ",hodnota_vysledku);
+        vysledek_bin=hodnota_vysledku.toString(2);
+        console.log("vysledek v bin: ",vysledek_bin);
+        y += vysledek_bin.length; 
+        break;
+      case 2:
+        vytvoreni_zadani(8,7);
+        zacatek();
+        console.log("hodnota vysledku: ",hodnota_vysledku);
+        vysledek_bin=hodnota_vysledku.toString(2);
+        console.log("vysledek v bin: ",vysledek_bin);
+        y += vysledek_bin.length;
+        break;
+      case 3:
+        vytvoreni_zadani(8,4);
+        zacatek();
+        hodnota_vysledku=Math.floor(hodnota1/hodnota2);
+        console.log("hodnota vysledku: ",hodnota_vysledku);
+        vysledek_bin=hodnota_vysledku.toString(2);
+        console.log("vysledek v bin: ",vysledek_bin);
+        y += vysledek_bin.length;
+        break;
+      case 4:
+        vytvoreni_zadani(5,5);
+        zacatek();
+        console.log("hodnota vysledku: ",hodnota_vysledku);
+        vysledek_bin=hodnota_vysledku.toString(2);
+        console.log("vysledek v bin: ",vysledek_bin);
+        y += vysledek_bin.length;
+        break;
+    }
+  })
+
 document.getElementById('zpet').addEventListener('click', function() {
     window.location.reload(); //příkaz na reload stránky
 })
