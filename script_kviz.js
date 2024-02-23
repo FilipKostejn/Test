@@ -145,7 +145,7 @@ document.getElementById('btn_scitani').addEventListener('click', function scitan
     operace = 1;
     vytvoreni_zadani(8,8);
     zacatek();
-    
+    setInterval(casInc, 100);
     console.log("hodnota vysledku: ",hodnota_vysledku);
     vysledek_bin=hodnota_vysledku.toString(2);
     console.log("vysledek v bin: ",vysledek_bin);
@@ -157,6 +157,7 @@ document.getElementById('btn_odcitani').addEventListener('click', function odcit
     operace = 2;
     vytvoreni_zadani(8,7);
     zacatek();
+    setInterval(casInc, 100);
     console.log("hodnota vysledku: ",hodnota_vysledku);
     vysledek_bin=hodnota_vysledku.toString(2);
     console.log("vysledek v bin: ",vysledek_bin);
@@ -166,6 +167,7 @@ document.getElementById('btn_deleni').addEventListener('click', function deleni(
     operace = 3;
     vytvoreni_zadani(8,4);
     zacatek();
+    setInterval(casInc, 100);
     hodnota_vysledku=Math.floor(hodnota1/hodnota2);
     console.log("hodnota vysledku: ",hodnota_vysledku);
     vysledek_bin=hodnota_vysledku.toString(2);
@@ -176,6 +178,7 @@ document.getElementById('btn_nasobeni').addEventListener('click', function nasob
     operace = 4;
     vytvoreni_zadani(5,5);
     zacatek();
+    setInterval(casInc, 100);
     console.log("hodnota vysledku: ",hodnota_vysledku);
     vysledek_bin=hodnota_vysledku.toString(2);
     console.log("vysledek v bin: ",vysledek_bin);
@@ -192,7 +195,7 @@ function zacatek() {
     document.getElementById('buttony01').style.display = 'flex';
     document.getElementById('zpet').style.display = 'block';
     document.getElementById('downloadCsv').style.display = 'block';
-    setInterval(casInc, 100);
+    
 }
 
 function funkce_0nebo1() {   //funkce na vytvoření náhodného čísla od 0 do 1
