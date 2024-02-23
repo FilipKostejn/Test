@@ -211,6 +211,7 @@ function vytvoreni_zadani(delka_cisla1, delka_cisla2) {
         zadani2='';
         j=7;
         x=7;
+        hodnota_vysledku = 0;
         console.log("nulovani hodnot");
         for (let index = 0; index < delka_cisla1; index++) {   // generace prvního zadaného čísla
             zadani1 += funkce_0nebo1();   
@@ -243,8 +244,20 @@ function vytvoreni_zadani(delka_cisla1, delka_cisla2) {
             hodnota_vysledku=Math.floor(hodnota1/hodnota2);
             cis2Inputs[1].value = "÷";
             break;
-        case 4:
+        case 4:    
             hodnota_vysledku=hodnota1*hodnota2;
+            if (hodnota_vysledku > 511) {
+              
+              console.log("VETSI NEZ 511", hodnota_vysledku);
+              hodnota1=0;
+              hodnota2=0;
+              zadani1='';
+              zadani2='';
+              j=7;
+              x=7;
+              hodnota_vysledku = 0;
+              vytvoreni_zadani(5,5);
+            }
             cis2Inputs[1].value = "·";
             break;
 
