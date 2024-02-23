@@ -354,12 +354,18 @@ document.getElementById('next_btn').addEventListener('click', function() {
       vysInputs[index].style.color = 'blue';
       vysInputs[index].style.borderColor = 'blue';
     }
+    for (let index = 0; index <= 9-vysledek_bin.length; index++) {
+      vysInputs[index].style.borderColor = 'rgba(0, 0, 0, 0.3)';
+      vysInputs[index].style.color = 'rgba(0, 0, 0, 0.5)';
+      
+    }
     document.getElementById("correct").style.display = 'none';
     document.getElementById("users").style.display = 'inline';
 })
 
 document.getElementById('users').addEventListener('click', function() {
   z = zadany_vysledek.length - 1;
+  console.log("TY JEDEN", vysInputs[0].value);
   for (let index = 9; index >= 0; index--) {
     vysInputs[index].value = zadany_vysledek.charAt(z);
     if (vysInputs[index].value == vysledek_bin.charAt(z)) {
@@ -371,6 +377,11 @@ document.getElementById('users').addEventListener('click', function() {
     }
     z--;
     console.log("zobrazeni zadaneho vysledku");
+    for (let index = 0; index <= 9-zadany_vysledek.length; index++) {
+      vysInputs[index].style.borderColor = 'rgba(0, 0, 0, 0.3)';
+      vysInputs[index].style.color = 'rgba(0, 0, 0, 0.5)';
+      
+    }
   }
   console.log("ZADANY VYSLEDEK LENGTH: ", zadany_vysledek.length);
   document.getElementById("correct").style.display = 'inline';
