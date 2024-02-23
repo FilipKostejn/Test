@@ -65,7 +65,8 @@
 .buttony {
     border-radius: 1.5vw;
     background-color: #00d9ffc5;
-    min-width: 20vw;
+   /* min-width: 20vw;*/
+    width: 25vw;
     font-size: 3vw;
     padding: 0;
     margin-right: 5vw;
@@ -198,6 +199,15 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 5vh;
+    align-self: center;
+}
+
+#correct {
+    margin-right: auto;
+}
+#users {
+    margin-right: auto;
+    display: none;
 }
 
 
@@ -206,7 +216,7 @@
 /*@media only screen and (max-height: 1200px) and (max-width: 500px) {*/
 @media only screen and (orientation: portrait) {
     .buttons {font-size: 7vw; margin-bottom: 5vh;}
-    .buttony {font-size: 10vw; margin-bottom: 5vh;}
+    .buttony {font-size: 5vw; margin-bottom: 5vh; width: 45vw;}
     .priklady {font-size: 8vw;}
     .header {font-size: 9vw;}
     #header {height: 14vw;}

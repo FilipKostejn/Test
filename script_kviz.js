@@ -12,6 +12,8 @@ var operace = 0;  //pomocná proměnná pro rozlišení, jakou operaci uživatel
 var data = [];      //proměnná pro uložení informací, které jsou exportovány do CSV souboru
 var sekundy = 0;    //proměnná držící čas řešení příkladu
 var date = '';      //proměnná držící datum ukončení příkladu
+var x = 9;
+var z = 7;
 
 var zadany_vysledek = '';
 var index_test = 9;
@@ -131,7 +133,7 @@ document.getElementById('moznost2').addEventListener('click', function() {
           }
           console.log("ZADANY VYSLEDEK: ", zadany_vysledek);
           date = new Date().toLocaleString('cs-CZ');     //podle https://stackoverflow.com/a/30245911
-    data.push({cislo1: zadani1, cislo2: zadani2, vysledek: vysledek_bin, zadano: zadany_vysledek, spravne: spravne, spatne: spatne, cas: sekundy.toFixed(1) + "s", casUkonceni: date});
+          data.push({cislo1: zadani1, cislo2: zadani2, vysledek: vysledek_bin, zadano: zadany_vysledek, spravne: spravne, spatne: spatne, cas: sekundy.toFixed(1) + "s", casUkonceni: date});
         }
       }
 
@@ -270,6 +272,8 @@ document.getElementById('next_btn').addEventListener('click', function() {
     zadani2 = ''; 
     hodnota1 = 0; 
     hodnota2 = 0;  
+    x = 9;
+    z = 9;
     hodnota_vysledku = 0; 
     vysledek_bin = '';     
     y = -1; 
@@ -323,6 +327,39 @@ document.getElementById('next_btn').addEventListener('click', function() {
         break;
     }
   })
+
+
+  document.getElementById('correct').addEventListener('click', function() {
+    x = zadany_vysledek.length -1;
+    for (let index = 9; index >= 0; index--) {
+      vysInputs[index].value = vysledek_bin.charAt(x);
+      x--;
+      console.log("zobrazeni vysledku");
+      vysInputs[index].style.color = 'blue';
+      vysInputs[index].style.borderColor = 'blue';
+    }
+    document.getElementById("correct").style.display = 'none';
+    document.getElementById("users").style.display = 'inline';
+})
+
+document.getElementById('users').addEventListener('click', function() {
+  z = zadany_vysledek.length - 1;
+  for (let index = 9; index >= 0; index--) {
+    vysInputs[index].value = zadany_vysledek.charAt(z);
+    if (vysInputs[index].value == vysledek_bin.charAt(z)) {
+      vysInputs[index].style.borderColor = "green";
+      vysInputs[index].style.color = "green";
+    } else {
+      vysInputs[index].style.borderColor = "red";
+      vysInputs[index].style.color = "red";
+    }
+    z--;
+    console.log("zobrazeni zadaneho vysledku");
+  }
+  console.log("ZADANY VYSLEDEK LENGTH: ", zadany_vysledek.length);
+  document.getElementById("correct").style.display = 'inline';
+  document.getElementById("users").style.display = 'none';
+})
 
 document.getElementById('zpet').addEventListener('click', function() {
     window.location.reload(); //příkaz na reload stránky
