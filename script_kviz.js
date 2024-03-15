@@ -20,6 +20,31 @@ var index_test = 9;
 const cis1Inputs = document.querySelectorAll(".cisla1 input");
 const cis2Inputs = document.querySelectorAll(".cisla2 input");
 const vysInputs = document.querySelectorAll(".vysledek input");
+var dataToExport = [];
+
+
+function addRow() {
+  console.log("addrow fce");
+  dataToExport.push([zadani1, zadani2, vysledek_bin, zadany_vysledek, spravne, spatne, sekundy.toFixed(1)+"s", date]);
+}
+
+document.getElementById("downloadCsv").addEventListener("click", function() {
+      // Vytvoření obsahu CSV souboru
+      var csvContent = "Zadani 1;Zadani 2; Vysledek_bin;Zadany_vysledek; Pocet_spravne; Pocet_spatne; Cas; Cas_ukonceni\n";
+      dataToExport.forEach(function (row) {
+          csvContent += row.join(";") + "\n";
+      });
+  
+      // Vytvoření a stažení CSV souboru
+      var blob = new Blob([csvContent], { type: 'text/csv' });
+      var link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = 'exported_data.csv';
+      link.click();
+})
+
+
+
 
 document.getElementById('moznost1').addEventListener('click', function() {
     if (index_test > 0) {
@@ -74,7 +99,7 @@ document.getElementById('moznost1').addEventListener('click', function() {
         }
         console.log("ZADANY VYSLEDEK: ", zadany_vysledek);
         date = new Date().toLocaleString('cs-CZ');     //podle https://stackoverflow.com/a/30245911
-        data.push({cislo1: zadani1, cislo2: zadani2, vysledek: vysledek_bin, zadano: zadany_vysledek, spravne: spravne, spatne: spatne, cas: sekundy.toFixed(1) + "s", casUkonceni: date});
+        addRow();
       }
     }
   });
@@ -133,11 +158,10 @@ document.getElementById('moznost2').addEventListener('click', function() {
           }
           console.log("ZADANY VYSLEDEK: ", zadany_vysledek);
           date = new Date().toLocaleString('cs-CZ');     //podle https://stackoverflow.com/a/30245911
-          data.push({cislo1: zadani1, cislo2: zadani2, vysledek: vysledek_bin, zadano: zadany_vysledek, spravne: spravne, spatne: spatne, cas: sekundy.toFixed(1) + "s", casUkonceni: date});
-        }
+          addRow();
       }
 
-})
+}})
 
 
 
@@ -392,21 +416,4 @@ document.getElementById('zpet').addEventListener('click', function() {
     window.location.reload(); //příkaz na reload stránky
 })
 
-
-
-//KÓD ZE STRÁNKY https://dcode.domenade.com/tutorials/easiest-way-to-export-csv-file-in-javascript (UPRAVENÝ)
-document.getElementById("downloadCsv").addEventListener("click", function() {
-    downloadCsv("data.csv", json2csv.parse(data));
-});
-function downloadCsv(filename, csvData) {
-    const element = document.createElement("a");
-
-    element.setAttribute("href", `data:text/csv;charset=utf-8,${csvData}`);
-    element.setAttribute("download", filename);
-    element.style.display = "none";
-
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
-}
 
