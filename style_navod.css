@@ -57,3 +57,17 @@ button {
     padding-top: 2vh;
     text-align: center;
 }
+h1 {
+    font-size: 2.5vw;
+}
+p {
+    font-size: 1.5vw;
+}
+
+/*@media only screen and (max-height: 1200px) and (max-width: 500px) {*/
+    @media only screen and (orientation: portrait) {
+        .header {font-size: 9vw;}
+        #header {height: 14vw;}
+        h1  {font-size: 6vw;}
+        p  {font-size: 4vw;}
+    }
