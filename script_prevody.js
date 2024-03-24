@@ -90,14 +90,12 @@ document.getElementById("begin").addEventListener("click", function () {
     automat = "ano";
     begin();
     displayConvertedValues();
-    document.getElementById('btn_navod').style.display = 'block';
     document.getElementById('buttons').style.display = "block";
     document.getElementById("uvodni2").innerHTML = "Správně převedené čísla vypadají takto:"
   } else {
     begin();
     automat = "ne";
     binInputs[0].focus();
-    document.getElementById('btn_navod').style.display = 'block';
   }
 });
 
@@ -116,7 +114,6 @@ function begin () {
     document.getElementById("space2").style.display = "block";
     document.getElementById("uvodni").style.display = "none";
     document.getElementById("checkbox").style.display = "none";
-
 };
 
 
@@ -180,7 +177,6 @@ hexInputs.forEach((input, index) => {
         input.disabled = 'true';
       } else {
           input.disabled = 'true';
-          navod();
           document.getElementById('buttons').style.display = "block";
           console.log('dokončen příklad');
           addRow();
@@ -250,15 +246,3 @@ decInputs.forEach((input, index) => {
   document.getElementById("checkbox").style.display = "flex";
   document.getElementById('buttons').style.display = "none";
 })
-
-
-document.getElementById('btn_navod').addEventListener('click', function navod() {
-
-  if (document.getElementById('navod').style.display == "block") {
-    document.getElementById('navod').style.display = "none";
-    document.getElementById('btn_navod').innerHTML = "Návod";
-  } else {
-    document.getElementById('navod').style.display = "block";
-    document.getElementById('btn_navod').innerHTML = "Skrýt návod";
-  }
-});

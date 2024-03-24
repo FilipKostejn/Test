@@ -91,7 +91,6 @@ document.getElementById('moznost1').addEventListener('click', function() {
         }
         delka++;
         document.getElementById("next").style.display = 'block';
-        document.getElementById('downloadCsv').style.display = 'block';
         document.getElementById('buttony01').style.display = 'none';
         console.log("cas na novy priklad");
         for (let index = 0; index <= 9; index++) {
@@ -219,8 +218,7 @@ function zacatek() {
     document.getElementById('domu').style.display = 'none';
     document.getElementById('buttony01').style.display = 'flex';
     document.getElementById('zpet').style.display = 'block';
-
-    document.getElementById('btn_navod').style.display = 'block';
+    document.getElementById('downloadCsv').style.display = 'block';
     
 }
 
@@ -309,7 +307,6 @@ function casInc() {
 document.getElementById('next_btn').addEventListener('click', function() {
   console.log("kliknuti na dalsi priklad");
   document.getElementById("next").style.display = 'none';
-  document.getElementById('downloadCsv').style.display = 'none';
     sekundy = 0;
     zadani1 = ''; 
     zadani2 = ''; 
@@ -420,13 +417,3 @@ document.getElementById('zpet').addEventListener('click', function() {
 })
 
 
-document.getElementById('btn_navod').addEventListener('click', function() {
-
-  if (document.getElementById('navod').style.display == "block") {
-    document.getElementById('navod').style.display = "none";
-    document.getElementById('btn_navod').innerHTML = "Návod";
-  } else {
-    document.getElementById('navod').style.display = "block";
-    document.getElementById('btn_navod').innerHTML = "Skrýt návod";
-  }
-});

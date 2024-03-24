@@ -153,21 +153,7 @@ button {
 
 
 
-#btn_navod {
-    display: none;
-    position: fixed;
-    left: 0;
-    bottom: 6vh;
-    border: none;
-    background-color: white;
-}
-#navod {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2vh;
-    display: none;
-    margin-top: 20vh;
-}
+
 
 
 /*-------------*/
