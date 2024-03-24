@@ -72,7 +72,6 @@
 
 
 
-
 /*@media only screen and (max-height: 1200px) and (max-width: 500px) {*/
 @media only screen and (orientation: portrait) {
     .header {font-size: 9vw;}
@@ -82,6 +81,9 @@
         align-items: center;
     }
     .karta p {
+        font-size: 3vw;
+    }
+    #navod {
         font-size: 3vw;
     }
     .karta h2 {
