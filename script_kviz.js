@@ -24,7 +24,6 @@ var dataToExport = [];
 
 
 function addRow() {
-  console.log("addrow fce");
   dataToExport.push([zadani1, zadani2, vysledek_bin, zadany_vysledek, spravne, spatne, sekundy.toFixed(1)+"s", date]);
 }
 
@@ -50,11 +49,9 @@ document.getElementById('moznost1').addEventListener('click', function() {
     if (index_test > 0) {
       // Nastavíme hodnotu aktuálního inputu na 1
       vysInputs[index_test].value = "1";
-      console.log("TEST: ", index_test);
       index_test--;
       
       if (delka < vysledek_bin.length) {
-        console.log("HEJ HEJ: ", vysledek_bin.charAt(y));
         switch (vysledek_bin.charAt(y)) {
           case '1':
             spravne++;
@@ -92,12 +89,10 @@ document.getElementById('moznost1').addEventListener('click', function() {
         delka++;
         document.getElementById("next").style.display = 'block';
         document.getElementById('buttony01').style.display = 'none';
-        console.log("cas na novy priklad");
         for (let index = 0; index <= 9; index++) {
           zadany_vysledek += vysInputs[index].value;
           
         }
-        console.log("ZADANY VYSLEDEK: ", zadany_vysledek);
         date = new Date().toLocaleString('cs-CZ');     //podle https://stackoverflow.com/a/30245911
         addRow();
       }
@@ -109,11 +104,9 @@ document.getElementById('moznost2').addEventListener('click', function() {
     if (index_test > 0) {
         // Nastavíme hodnotu aktuálního inputu na 1
         vysInputs[index_test].value = "0";
-        console.log("TEST: ", index_test);
         index_test--;
         
         if (delka < vysledek_bin.length) {
-            console.log("HEJ HEJ: ", vysledek_bin.charAt(y));
           switch (vysledek_bin.charAt(y)) {
             case '0':
               spravne++;
@@ -151,12 +144,10 @@ document.getElementById('moznost2').addEventListener('click', function() {
           delka++;
           document.getElementById("next").style.display = 'block';
           document.getElementById('buttony01').style.display = 'none';
-          console.log("cas na novy priklad");
           for (let index = 0; index <= 9; index++) {
             zadany_vysledek += vysInputs[index].value;
             
           }
-          console.log("ZADANY VYSLEDEK: ", zadany_vysledek);
           date = new Date().toLocaleString('cs-CZ');     //podle https://stackoverflow.com/a/30245911
           addRow();
       }
@@ -170,9 +161,7 @@ document.getElementById('btn_scitani').addEventListener('click', function scitan
     vytvoreni_zadani(8,8);
     zacatek();
     setInterval(casInc, 100);
-    console.log("hodnota vysledku: ",hodnota_vysledku);
     vysledek_bin=hodnota_vysledku.toString(2);
-    console.log("vysledek v bin: ",vysledek_bin);
     y += vysledek_bin.length;       //nastaví y na hodnotu délky výsledku (-1 + "vysledek_bin.legth") (-1 kvůli pozici 0 stringu)
     
 
@@ -182,9 +171,7 @@ document.getElementById('btn_odcitani').addEventListener('click', function odcit
     vytvoreni_zadani(8,7);
     zacatek();
     setInterval(casInc, 100);
-    console.log("hodnota vysledku: ",hodnota_vysledku);
     vysledek_bin=hodnota_vysledku.toString(2);
-    console.log("vysledek v bin: ",vysledek_bin);
     y += vysledek_bin.length;       //nastaví y na hodnotu délky výsledku (-1 + "vysledek_bin.legth") (-1 kvůli pozici 0 stringu)
 })
 document.getElementById('btn_deleni').addEventListener('click', function deleni() { 
@@ -193,9 +180,7 @@ document.getElementById('btn_deleni').addEventListener('click', function deleni(
     zacatek();
     setInterval(casInc, 100);
     hodnota_vysledku=Math.floor(hodnota1/hodnota2);
-    console.log("hodnota vysledku: ",hodnota_vysledku);
     vysledek_bin=hodnota_vysledku.toString(2);
-    console.log("vysledek v bin: ",vysledek_bin);
     y += vysledek_bin.length;       //nastaví y na hodnotu délky výsledku (-1 + "vysledek_bin.legth") (-1 kvůli pozici 0 stringu)
 })
 document.getElementById('btn_nasobeni').addEventListener('click', function nasobeni() { 
@@ -203,9 +188,7 @@ document.getElementById('btn_nasobeni').addEventListener('click', function nasob
     vytvoreni_zadani(5,5);
     zacatek();
     setInterval(casInc, 100);
-    console.log("hodnota vysledku: ",hodnota_vysledku);
     vysledek_bin=hodnota_vysledku.toString(2);
-    console.log("vysledek v bin: ",vysledek_bin);
     y += vysledek_bin.length;       //nastaví y na hodnotu délky výsledku (-1 + "vysledek_bin.legth") (-1 kvůli pozici 0 stringu)
 })
 
@@ -236,7 +219,6 @@ function vytvoreni_zadani(delka_cisla1, delka_cisla2) {
         j=7;
         x=7;
         hodnota_vysledku = 0;
-        console.log("nulovani hodnot");
         for (let index = 0; index < delka_cisla1; index++) {   // generace prvního zadaného čísla
             zadani1 += funkce_0nebo1();   
         }
@@ -246,14 +228,11 @@ function vytvoreni_zadani(delka_cisla1, delka_cisla2) {
         }
         hodnota1 = parseInt(zadani1, 2);        //převod 1. čísla na dekadické
         hodnota2 = parseInt(zadani2, 2);        // převod 2. čísla na dekadické
-        console.log("prevod cisel na deka: ", hodnota1, "....", hodnota2);
     } 
 
     // Použijeme .padStart(8, '0') k doplnění nul
     binaryNumber1 = zadani1.padStart(8, '0');
     binaryNumber2 = zadani2.padStart(8, '0');
-    console.log("prvni bin cislo: ",binaryNumber1);
-    console.log("druhe bin cislo: ",binaryNumber2);
 
     switch (operace) {
         case 1:
@@ -272,7 +251,6 @@ function vytvoreni_zadani(delka_cisla1, delka_cisla2) {
             hodnota_vysledku=hodnota1*hodnota2;
             if (hodnota_vysledku > 511) {
               
-              console.log("VETSI NEZ 511", hodnota_vysledku);
               hodnota1=0;
               hodnota2=0;
               zadani1='';
@@ -305,7 +283,6 @@ function casInc() {
 //nastavení dalšího příkladu (vymázání hodnot pro přepsání)
 
 document.getElementById('next_btn').addEventListener('click', function() {
-  console.log("kliknuti na dalsi priklad");
   document.getElementById("next").style.display = 'none';
     sekundy = 0;
     zadani1 = ''; 
@@ -335,34 +312,26 @@ document.getElementById('next_btn').addEventListener('click', function() {
       case 1:
         vytvoreni_zadani(8,8);
         zacatek();
-        console.log("hodnota vysledku: ",hodnota_vysledku);
         vysledek_bin=hodnota_vysledku.toString(2);
-        console.log("vysledek v bin: ",vysledek_bin);
         y += vysledek_bin.length; 
         break;
       case 2:
         vytvoreni_zadani(8,7);
         zacatek();
-        console.log("hodnota vysledku: ",hodnota_vysledku);
         vysledek_bin=hodnota_vysledku.toString(2);
-        console.log("vysledek v bin: ",vysledek_bin);
         y += vysledek_bin.length;
         break;
       case 3:
         vytvoreni_zadani(8,4);
         zacatek();
         hodnota_vysledku=Math.floor(hodnota1/hodnota2);
-        console.log("hodnota vysledku: ",hodnota_vysledku);
         vysledek_bin=hodnota_vysledku.toString(2);
-        console.log("vysledek v bin: ",vysledek_bin);
         y += vysledek_bin.length;
         break;
       case 4:
         vytvoreni_zadani(5,5);
         zacatek();
-        console.log("hodnota vysledku: ",hodnota_vysledku);
         vysledek_bin=hodnota_vysledku.toString(2);
-        console.log("vysledek v bin: ",vysledek_bin);
         y += vysledek_bin.length;
         break;
     }
@@ -374,7 +343,6 @@ document.getElementById('next_btn').addEventListener('click', function() {
     for (let index = 9; index >= 0; index--) {
       vysInputs[index].value = vysledek_bin.charAt(x);
       x--;
-      console.log("zobrazeni vysledku");
       vysInputs[index].style.color = 'blue';
       vysInputs[index].style.borderColor = 'blue';
     }
@@ -389,7 +357,6 @@ document.getElementById('next_btn').addEventListener('click', function() {
 
 document.getElementById('users').addEventListener('click', function() {
   z = zadany_vysledek.length - 1;
-  console.log("TY JEDEN", vysInputs[0].value);
   for (let index = 9; index >= 0; index--) {
     vysInputs[index].value = zadany_vysledek.charAt(z);
     if (vysInputs[index].value == vysledek_bin.charAt(z)) {
@@ -400,14 +367,12 @@ document.getElementById('users').addEventListener('click', function() {
       vysInputs[index].style.color = "red";
     }
     z--;
-    console.log("zobrazeni zadaneho vysledku");
     for (let index = 0; index <= 9-zadany_vysledek.length; index++) {
       vysInputs[index].style.borderColor = 'rgba(0, 0, 0, 0.3)';
       vysInputs[index].style.color = 'rgba(0, 0, 0, 0.5)';
       
     }
   }
-  console.log("ZADANY VYSLEDEK LENGTH: ", zadany_vysledek.length);
   document.getElementById("correct").style.display = 'inline';
   document.getElementById("users").style.display = 'none';
 })

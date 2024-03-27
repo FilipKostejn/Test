@@ -10,14 +10,11 @@ var dataToExport = [];
 var automat = "";
 var entered_bin = "";
 var entered_hex = "";
-var x = 0;
-var z = 0;
-var y = 0;
+
 
 
 function addRow() {
   date = new Date().toLocaleString('cs-CZ');     //podle https://stackoverflow.com/a/30245911
-  console.log("addrow fce");
   dataToExport.push([result, entered_bin, binaryNumber, entered_hex, hexNumber, right, wrong, date, automat]);
 }
 
@@ -91,7 +88,6 @@ function convert() {
 
 document.getElementById("begin").addEventListener("click", function () {
   if (document.getElementById("check").checked) {
-    console.log("mic check nigga");
     automat = "ano";
     begin();
     displayConvertedValues();
@@ -209,18 +205,14 @@ hexInputs.forEach((input, index) => {
 
 
 document.getElementById('correct').addEventListener('click', function() {
-  console.log(binaryNumber.length-1);
   for (let index = 0; index <= 7; index++) {
     binInputs[index].value = binaryNumber.charAt(index);
-    console.log("zobrazeni vysledku");
     binInputs[index].style.color = 'blue';
     binInputs[index].style.borderColor = 'blue';
-    console.log("modra");
   }
 
   for (let index = 0; index <= 1; index++) {
     hexInputs[index].value = hexNumber.charAt(index);
-    console.log("zobrazeni vysledku");
     hexInputs[index].style.color = 'blue';
     hexInputs[index].style.borderColor = 'blue';
   }
@@ -248,7 +240,6 @@ for (let index = 0; index <= 7; index++) {
       hexInputs[index].style.borderColor = "red";
       hexInputs[index].style.color = "red";
     }
-  console.log("zobrazeni zadaneho vysledku");
 }
 document.getElementById("correct").style.display = 'inline';
 document.getElementById("users").style.display = 'none';
@@ -272,9 +263,6 @@ document.getElementById('next').addEventListener('click', function() {
   automat = "";
   entered_bin = "";
   entered_hex = "";
-  var x = 0;
-  var z = 0;
-  var y = 0;
   binInputs.forEach((input, index) => {
     input.value = "";
     input.disabled = false;
