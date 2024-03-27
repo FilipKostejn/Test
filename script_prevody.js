@@ -74,6 +74,8 @@ function displayConvertedValues() {
       input.disabled = true;
   });
   addRow();
+  document.getElementById("correct").style.display = 'none';
+  document.getElementById("users").style.display = 'none';
 }
 
 function convert() {
@@ -228,29 +230,29 @@ document.getElementById('correct').addEventListener('click', function() {
 })
 
 document.getElementById('users').addEventListener('click', function() {
-z = zadany_vysledek.length - 1;
-console.log("TY JEDEN", vysInputs[0].value);
-for (let index = 9; index >= 0; index--) {
-  vysInputs[index].value = zadany_vysledek.charAt(z);
-  if (vysInputs[index].value == vysledek_bin.charAt(z)) {
-    vysInputs[index].style.borderColor = "green";
-    vysInputs[index].style.color = "green";
+for (let index = 0; index <= 7; index++) {
+  binInputs[index].value = entered_bin.charAt(index);
+  if (binInputs[index].value == binaryNumber.charAt(index)) {
+    binInputs[index].style.borderColor = "green";
+    binInputs[index].style.color = "green";
   } else {
-    vysInputs[index].style.borderColor = "red";
-    vysInputs[index].style.color = "red";
+    binInputs[index].style.borderColor = "red";
+    binInputs[index].style.color = "red";
   }
-  z--;
+  for (let index = 0; index <= 1; index++) {
+    hexInputs[index].value = entered_hex.charAt(index);
+    if (hexInputs[index].value == hexNumber.charAt(index)) {
+      hexInputs[index].style.borderColor = "green";
+      hexInputs[index].style.color = "green";
+    } else {
+      hexInputs[index].style.borderColor = "red";
+      hexInputs[index].style.color = "red";
+    }
   console.log("zobrazeni zadaneho vysledku");
-  for (let index = 0; index <= 9-zadany_vysledek.length; index++) {
-    vysInputs[index].style.borderColor = 'rgba(0, 0, 0, 0.3)';
-    vysInputs[index].style.color = 'rgba(0, 0, 0, 0.5)';
-    
-  }
 }
-console.log("ZADANY VYSLEDEK LENGTH: ", zadany_vysledek.length);
 document.getElementById("correct").style.display = 'inline';
 document.getElementById("users").style.display = 'none';
-})
+}})
 
 
 
