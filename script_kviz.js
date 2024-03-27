@@ -39,7 +39,7 @@ document.getElementById("downloadCsv").addEventListener("click", function() {
       var blob = new Blob([csvContent], { type: 'text/csv' });
       var link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
-      link.download = 'exported_data.csv';
+      link.download = 'data_kviz.csv';
       link.click();
 })
 

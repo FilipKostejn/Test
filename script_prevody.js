@@ -20,7 +20,7 @@ function addRow() {
 
 document.getElementById("downloadCsv").addEventListener("click", function() {
       // Vytvoření obsahu CSV souboru
-      var csvContent = "Cislo_na_prevod; Zadane_bin; Spravne_bin; Zadane_hex; Spravne_hex;  Pocet_spravne; Pocet_spatne; Cas_ukonceni; Automaticke_prevedeni\n";
+      var csvContent = "Prevody ciselnych soustav\nCislo_na_prevod; Zadane_bin; Spravne_bin; Zadane_hex; Spravne_hex;  Pocet_spravne; Pocet_spatne; Cas_ukonceni; Automaticke_prevedeni\n";
       dataToExport.forEach(function (row) {
           csvContent += row.join(";") + "\n";
       });
@@ -29,7 +29,7 @@ document.getElementById("downloadCsv").addEventListener("click", function() {
       var blob = new Blob([csvContent], { type: 'text/csv' });
       var link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
-      link.download = 'exported_data.csv';
+      link.download = 'data_prevody.csv';
       link.click();
 })
 
