@@ -78,7 +78,7 @@ body {
 button {
     background-color: #74efff;
     margin-top: 2vh;
-    width: 15vw;
+    width: 20vw;
     border-radius: 1vw;
     border: none;
     font-size: 2vw;
@@ -139,6 +139,19 @@ button {
     cursor: pointer;
     display: none; /*block*/
     border-radius: 0;
+}
+#downloadCsv {
+    width: 16vw;
+    height: 5vh;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: #00d9ffc5;
+    border: none;
+    border-radius: 0%;
+    font-size: 2vw;
+    cursor: pointer;
+    display: none; /*block*/
 }
 
 

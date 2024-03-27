@@ -10,6 +10,9 @@ var dataToExport = [];
 var automat = "";
 var entered_bin = "";
 var entered_hex = "";
+var x = 0;
+var z = 0;
+var y = 0;
 
 
 function addRow() {
@@ -178,6 +181,8 @@ hexInputs.forEach((input, index) => {
       } else {
           input.disabled = 'true';
           document.getElementById('buttons').style.display = "block";
+        document.getElementById('downloadCsv').style.display = "block";
+        document.getElementById('users').style.display = "none";
           console.log('dokončen příklad');
           addRow();
     }
@@ -191,11 +196,61 @@ hexInputs.forEach((input, index) => {
     } else {
         input.disabled = 'true';
         document.getElementById('buttons').style.display = "block";
+        document.getElementById('downloadCsv').style.display = "block";
+        document.getElementById('users').style.display = "none";
         console.log('dokončen příklad');
         addRow();
     }
   }});
 });
+
+
+
+document.getElementById('correct').addEventListener('click', function() {
+  console.log(binaryNumber.length-1);
+  for (let index = 0; index <= 7; index++) {
+    binInputs[index].value = binaryNumber.charAt(index);
+    console.log("zobrazeni vysledku");
+    binInputs[index].style.color = 'blue';
+    binInputs[index].style.borderColor = 'blue';
+    console.log("modra");
+  }
+
+  for (let index = 0; index <= 1; index++) {
+    hexInputs[index].value = hexNumber.charAt(index);
+    console.log("zobrazeni vysledku");
+    hexInputs[index].style.color = 'blue';
+    hexInputs[index].style.borderColor = 'blue';
+  }
+
+  document.getElementById("correct").style.display = 'none';
+  document.getElementById("users").style.display = 'inline';
+})
+
+document.getElementById('users').addEventListener('click', function() {
+z = zadany_vysledek.length - 1;
+console.log("TY JEDEN", vysInputs[0].value);
+for (let index = 9; index >= 0; index--) {
+  vysInputs[index].value = zadany_vysledek.charAt(z);
+  if (vysInputs[index].value == vysledek_bin.charAt(z)) {
+    vysInputs[index].style.borderColor = "green";
+    vysInputs[index].style.color = "green";
+  } else {
+    vysInputs[index].style.borderColor = "red";
+    vysInputs[index].style.color = "red";
+  }
+  z--;
+  console.log("zobrazeni zadaneho vysledku");
+  for (let index = 0; index <= 9-zadany_vysledek.length; index++) {
+    vysInputs[index].style.borderColor = 'rgba(0, 0, 0, 0.3)';
+    vysInputs[index].style.color = 'rgba(0, 0, 0, 0.5)';
+    
+  }
+}
+console.log("ZADANY VYSLEDEK LENGTH: ", zadany_vysledek.length);
+document.getElementById("correct").style.display = 'inline';
+document.getElementById("users").style.display = 'none';
+})
 
 
 
@@ -215,6 +270,9 @@ document.getElementById('next').addEventListener('click', function() {
   automat = "";
   entered_bin = "";
   entered_hex = "";
+  var x = 0;
+  var z = 0;
+  var y = 0;
   binInputs.forEach((input, index) => {
     input.value = "";
     input.disabled = false;
@@ -245,4 +303,5 @@ decInputs.forEach((input, index) => {
   document.getElementById("uvodni").style.display = "block";
   document.getElementById("checkbox").style.display = "flex";
   document.getElementById('buttons').style.display = "none";
+  document.getElementById('downloadCsv').style.display = "none";
 })
